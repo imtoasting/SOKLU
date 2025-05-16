@@ -58,6 +58,58 @@
       filter: brightness(1.5);
     }
 
+    .search-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.search-input {
+  width: 80%;
+  max-width: 400px;
+  padding: 12px 20px;
+  border: 1px solid white;
+  border-radius: 50px;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #ccc;
+}
+
+.branches {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.branch {
+  padding: 12px 24px;
+  border: 1px solid white;
+  border-radius: 50px;
+  font-size: 16px;
+  color: white;
+  background-color: transparent;
+  font-family: "Geist Mono", monospace;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .branches {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-input {
+    width: 90%;
+  }
+}
+
     .signup-button {
       padding: 7px 24px;
       background: linear-gradient(90deg, rgb(20, 122, 254), rgb(12, 42, 152));
@@ -132,6 +184,16 @@
       <button class="signup-button" id="openFormBtn">Join Now</button>
     </div>
   </header>
+
+  <div class="search-container">
+    <input type="text" class="search-input" placeholder="Search..." />
+  </div>
+  
+  <div class="branches">
+    <div class="branch">AI&amp;DS</div>
+    <div class="branch">CSE</div>
+    <div class="branch">ECE</div>
+  </div>  
 
   <form class="signup-form" id="signupForm">
     <input type="text" placeholder="Name" required />
