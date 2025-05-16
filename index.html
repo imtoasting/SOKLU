@@ -169,6 +169,18 @@
       .signup-button {
         margin-top: -8px;
       }
+
+      .branches {
+    flex-direction: row;  /* keep side by side */
+    flex-wrap: nowrap;    /* prevent wrapping to new lines */
+    overflow-x: auto;     /* allow horizontal scroll if needed */
+    justify-content: center;
+  }
+
+  .branch {
+    white-space: nowrap; /* prevent text from breaking */
+    flex-shrink: 0;
+  }
     }
   </style>
 </head>
@@ -178,8 +190,8 @@
     <div class="logo-name">SOKLU</div>
     <div class="right-section">
       <div class="social-icons">
-        <a href="https://discord.gg/4dKKbkV87U"><img src="./discord.svg" alt="Discord" title="Join us on Discord" /></a>
-        <a href="https://instagram.com"><img src="./instagram.svg" alt="Instagram" title="Follow us on Instagram" /></a>
+        <a href="https://discord.gg/4dKKbkV87U"><img src="./img/discord.svg" alt="Discord" title="Join us on Discord" /></a>
+        <a href="https://instagram.com"><img src="./img/instagram.svg" alt="Instagram" title="Follow us on Instagram" /></a>
       </div>
       <button class="signup-button" id="openFormBtn">Join Now</button>
     </div>
