@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Students Of KLU</title>
 
-  <!-- Site Metadata -->
   <meta name="author" content="Sreeman Reddy">
   <meta name="description" content="SOKLU – Resource sharing group.">
 
@@ -59,100 +58,63 @@
     }
 
     .search-container {
-  display: flex;
-  justify-content: center;
-  margin: 20px;
-}
+      display: flex;
+      justify-content: center;
+      margin: 20px;
+    }
 
-.search-input {
-  width: 80%;
-  max-width: 400px;
-  padding: 12px 20px;
-  border: 1px solid white;
-  border-radius: 50px;
-  background-color: transparent;
-  color: white;
-  font-size: 16px;
-  outline: none;
-}
-
-.search-input::placeholder {
-  color: #ccc;
-}
-
-.branches {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin: 20px;
-}
-
-.branch {
-  padding: 12px 24px;
-  border: 1px solid white;
-  border-radius: 50px;
-  font-size: 16px;
-  color: white;
-  background-color: transparent;
-  font-family: "Geist Mono", monospace;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .branches {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .search-input {
-    width: 90%;
-  }
-}
-
-    .signup-button {
-      padding: 7px 24px;
-      background: linear-gradient(90deg, rgb(20, 122, 254), rgb(12, 42, 152));
-      border: none;
-      border-radius: 999px;
+    .search-input {
+      width: 80%;
+      max-width: 400px;
+      padding: 12px 20px;
+      border: 1px solid white;
+      border-radius: 50px;
+      background-color: transparent;
       color: white;
       font-size: 16px;
-      font-weight: 300;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      outline: none;
     }
 
-    .signup-button:hover {
-      transform: scale(0.97);
-      box-shadow: 0 2px 8px rgba(165, 124, 124, 0.3);
+    .search-input::placeholder {
+      color: #ccc;
     }
 
-    .signup-form {
-      display: none;
-      flex-direction: column;
+    .branches {
+      display: flex;
+      justify-content: center;
       gap: 16px;
-      margin: 40px auto;
-      max-width: 400px;
-      padding: 20px;
-      border: 1px solid #e2e1d3;
-      border-radius: 16px;
-      background-color: rgba(0,0,0,0.2);
+      flex-wrap: wrap;
+      margin: 20px;
     }
 
-    .signup-form input {
-      background-color: transparent;
-      border: 1px solid #e2e1d3;
-      padding: 10px;
+    .branch {
+      padding: 12px 24px;
+      border: 1px solid white;
+      border-radius: 50px;
       font-size: 16px;
-      color: #e2e1d3;
-      border-radius: 8px;
+      color: white;
+      background-color: transparent;
+      font-family: "Geist Mono", monospace;
     }
 
-    .signup-form input::placeholder {
-      color: #e2e1d3;
-    }
-
+    /* Responsive adjustments */
     @media (max-width: 768px) {
+      .branches {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: center;
+      }
+
+      .search-input {
+        width: 90%;
+      }
+
+      .branch {
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
       header {
         flex-direction: column;
         align-items: center;
@@ -166,21 +128,29 @@
         flex-wrap: wrap;
       }
 
-      .signup-button {
+      .glass-button {
         margin-top: -8px;
       }
+    }
 
-      .branches {
-    flex-direction: row;  /* keep side by side */
-    flex-wrap: nowrap;    /* prevent wrapping to new lines */
-    overflow-x: auto;     /* allow horizontal scroll if needed */
-    justify-content: center;
-  }
+    .glass-button {
+      padding: 10px 28px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      font-family: "Geist Mono", monospace;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-  .branch {
-    white-space: nowrap; /* prevent text from breaking */
-    flex-shrink: 0;
-  }
+    .glass-button:hover {
+      transform: scale(0.97);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
     }
   </style>
 </head>
@@ -193,7 +163,7 @@
         <a href="https://discord.gg/4dKKbkV87U"><img src="./img/discord.svg" alt="Discord" title="Join us on Discord" /></a>
         <a href="https://instagram.com"><img src="./img/instagram.svg" alt="Instagram" title="Follow us on Instagram" /></a>
       </div>
-      <button class="signup-button" id="openFormBtn">Join Now</button>
+      <button class="glass-button">Join Now</button>
     </div>
   </header>
 
@@ -206,31 +176,6 @@
     <div class="branch">CSE</div>
     <div class="branch">ECE</div>
   </div>  
-
-  <form class="signup-form" id="signupForm">
-    <input type="text" placeholder="Name" required />
-    <input type="email" placeholder="Email" required />
-    <input type="password" placeholder="Password" required />
-    <button type="submit" class="signup-button">Submit</button>
-  </form>
-
-  <script>
-    const form = document.getElementById('signupForm');
-    const openBtn = document.getElementById('openFormBtn');
-
-    openBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      form.style.display = form.style.display === 'flex' ? 'none' : 'flex';
-    });
-
-    form.addEventListener('click', (e) => {
-      e.stopPropagation();
-    });
-
-    document.addEventListener('click', () => {
-      form.style.display = 'none';
-    });
-  </script>
 
 </body>
 </html>
